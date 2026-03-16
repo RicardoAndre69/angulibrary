@@ -1,0 +1,72 @@
+.modern-table tbody tr {
+  transition: all 300ms ease;
+  overflow-x: hidden;
+}
+
+.modern-table tbody tr:hover {
+  background: #f6f6f6;
+  transform: scale(1.01);
+  overflow-x: hidden;
+}
+
+.table-responsive {
+  overflow-x: hidden;
+}
+
+.btn {
+  transition: all 300ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.form-control {
+  transition: all 300ms ease;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, .25);
+  transform: scale(1.01);
+}
+
+/* -------- Paginação numerada redonda -------- */
+.pagination-circle {
+  list-style: none;
+  padding: 0;
+}
+
+.pagination-circle .page-item {
+  margin: 0 4px;
+}
+
+.pagination-circle .page-link {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 2px solid #ffc107;
+  color: #ffc107;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.pagination-circle .page-link:hover {
+  background: #ffc107;
+  color: #000;
+}
+
+.pagination-circle .page-link.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.pagination-circle .page-link.active {
+  background: #ffc107;
+  color: #000;
+  border-color: #ffc107;
+}
