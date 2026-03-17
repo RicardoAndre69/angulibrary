@@ -13,6 +13,7 @@ Angulibrary is a modern, interactive book search application built with Angular 
 
 ---
 ## 📁 Project Structure
+```bash
 angulibrary/
 ├─ src/
 │  ├─ app/
@@ -28,7 +29,8 @@ angulibrary/
 │  │  ├─ app.ts             
 │  │  ├─ app.html
 │  │  ├─ app.css
-│             
+│
+```  
 ---
 
 ## 🛠️ Getting Started
