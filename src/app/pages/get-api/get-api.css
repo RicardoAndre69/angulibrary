@@ -1,28 +1,40 @@
 .modern-table tbody tr {
-  transition: all 300ms ease;
-  overflow-x: hidden;
+  transition: all 200ms ease;
 }
 
-.modern-table tbody tr:hover {
-  background: #f6f6f6;
-  transform: scale(1.01);
-  overflow-x: hidden;
+/* REMOVE conflito do Bootstrap */
+.modern-table.table-hover tbody tr:hover > td {
+  background-color: inherit !important;
+}
+
+/* HOVER LIGHT */
+body.light-mode .modern-table tbody tr:hover {
+  background-color: #f2f2f2;
+  transform: translateY(-2px);
+}
+
+/* HOVER DARK */
+body.dark-mode .modern-table tbody tr:hover {
+  background-color: #242833;
+  transform: translateY(-2px);
 }
 
 .table-responsive {
   overflow-x: hidden;
 }
 
+/* BOTÕES */
 .btn {
-  transition: all 300ms ease;
+  transition: all 200ms ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
 }
 
+/* INPUT */
 .form-control {
-  transition: all 300ms ease;
+  transition: all 200ms ease;
 }
 
 .form-control:focus {
@@ -30,7 +42,7 @@
   transform: scale(1.01);
 }
 
-/* -------- Paginação numerada redonda -------- */
+/* PAGINAÇÃO */
 .pagination-circle {
   list-style: none;
   padding: 0;
@@ -69,4 +81,12 @@
   background: #ffc107;
   color: #000;
   border-color: #ffc107;
+}
+
+.modern-table tbody tr td {
+  background-color: inherit !important;
+}
+
+.modern-table tbody tr:hover td {
+  background-color: inherit !important;
 }

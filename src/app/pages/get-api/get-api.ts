@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MOCK_BOOKS } from './books-mock';
 
 interface Book {
+  id: string;
   title: string;
   authors?: string[];
   publishedDate?: string;
@@ -27,13 +28,14 @@ export class GetApi implements OnInit {
   filteredBooks: Book[] = [];
   books: Book[] = [];
 
+  favorites: Book[] = []; // ⭐ favoritos
+
   filterAuthor: string = '';
   filterYear: number | null = null;
   filterGenre: string = '';
 
   loading: boolean = false;
 
-  /* PAGINAÇÃO */
   currentPage = 1;
   itemsPerPage = 15;
   totalPages = 1;
@@ -46,7 +48,19 @@ export class GetApi implements OnInit {
   }
 
   ngOnInit() {
-    this.originalBooks = [...MOCK_BOOKS];
+
+
+    const savedFavs = localStorage.getItem('favorites');
+    if (savedFavs) {
+      this.favorites = JSON.parse(savedFavs);
+    }
+
+
+    this.originalBooks = MOCK_BOOKS.map((b, i) => ({
+      ...b,
+      id: b.title + i
+    }));
+
     this.applyFilters();
   }
 
@@ -55,13 +69,20 @@ export class GetApi implements OnInit {
     const q = this.query.trim().toLowerCase();
 
     if (!q) {
-      this.originalBooks = [...MOCK_BOOKS];
+      this.originalBooks = MOCK_BOOKS.map((b, i) => ({
+        ...b,
+        id: b.title + i
+      }));
     } else {
-      this.originalBooks = MOCK_BOOKS.filter(book =>
-        book.title.toLowerCase().includes(q)
-      );
+      this.originalBooks = MOCK_BOOKS
+        .filter(book => book.title.toLowerCase().includes(q))
+        .map((b, i) => ({
+          ...b,
+          id: b.title + i
+        }));
     }
 
+    this.currentPage = 1;
     this.applyFilters();
   }
 
@@ -112,31 +133,25 @@ export class GetApi implements OnInit {
   }
 
   nextPage() {
-
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
       this.updatePagination();
     }
-
   }
 
   prevPage() {
-
     if (this.currentPage > 1) {
       this.currentPage--;
       this.updatePagination();
     }
-
   }
 
   clearFilters() {
-
     this.filterAuthor = '';
     this.filterYear = null;
     this.filterGenre = '';
-
+    this.currentPage = 1;
     this.applyFilters();
-
   }
 
   toggleTheme() {
@@ -152,4 +167,24 @@ export class GetApi implements OnInit {
     }
 
   }
+
+
+
+  toggleFavorite(book: Book) {
+
+    const exists = this.favorites.find(f => f.id === book.id);
+
+    if (exists) {
+      this.favorites = this.favorites.filter(f => f.id !== book.id);
+    } else {
+      this.favorites.push(book);
+    }
+
+    localStorage.setItem('favorites', JSON.stringify(this.favorites));
+  }
+
+  isFavorite(book: Book): boolean {
+    return this.favorites.some(f => f.id === book.id);
+  }
+
 }

@@ -1,0 +1,37 @@
+<div class="container mt-5 text-center">
+
+  <h2 class="mb-4">📖 Livro do Dia</h2>
+
+  <div *ngIf="book" class="card mx-auto shadow" style="max-width: 400px;">
+
+    <img
+      *ngIf="book.thumbnail"
+      [src]="book.thumbnail"
+      class="card-img-top"
+    />
+
+    <div class="card-body">
+
+      <h5 class="card-title">{{ book.title }}</h5>
+
+      <p class="card-text">
+        {{ (book.authors || []).join(', ') }}
+      </p>
+
+      <p class="text-muted">
+        {{ book.publishedDate }}
+      </p>
+
+      <a
+        *ngIf="book.infoLink"
+        [href]="book.infoLink"
+        target="_blank"
+        class="btn btn-warning">
+        Ver mais
+      </a>
+
+    </div>
+
+  </div>
+
+</div>

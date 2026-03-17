@@ -3,26 +3,7 @@
   letter-spacing: 0.2px;
 }
 
-body.light-mode {
-  background: #ffffff;
-  color: #000000;
-}
-
-body.dark-mode {
-  background: #121212;
-  color: #e0e0e0;
-}
-
-body.dark-mode .table {
-  background: #2a2a2a;
-  color: #e0e0e0;
-}
-
-body.dark-mode .table-dark {
-  background: #1d1d1d !important;
-  color: #fff;
-}
-
+/* TRANSIÇÕES GLOBAIS */
 body,
 table,
 thead,
@@ -38,41 +19,40 @@ button {
     border-color 300ms ease;
 }
 
+/* ANIMAÇÃO */
 body {
   opacity: 0;
   animation: pageFadeIn 500ms ease-in-out forwards;
 }
+
+/* ================= LIGHT MODE ================= */
 
 body.light-mode {
   background: #f8f9fa;
   color: #1a1a1a;
 }
 
-/* tabela clara */
 body.light-mode .modern-table {
-  background: white;
+  background: #ffffff;
   color: #1a1a1a;
 }
 
 body.light-mode .modern-table thead {
   background: #1f1f1f;
-  color: white;
+  color: #ffffff;
 }
 
 body.light-mode .modern-table tbody tr {
-  background: white;
+  background: #ffffff;
 }
 
-body.light-mode .modern-table tbody tr:hover {
-  background: #f2f2f2;
-}
+/* ================= DARK MODE ================= */
 
 body.dark-mode {
   background: #0f1115;
   color: #f1f1f1;
 }
 
-/* tabela dark */
 body.dark-mode .modern-table {
   background: #1a1d24;
   color: #f1f1f1;
@@ -80,25 +60,15 @@ body.dark-mode .modern-table {
 
 body.dark-mode .modern-table thead {
   background: #111318;
-  color: white;
+  color: #ffffff;
 }
 
 body.dark-mode .modern-table tbody tr {
   background: #1a1d24;
 }
 
-body.dark-mode .modern-table tbody tr:hover {
-  background: #242833;
-}
-
-/* bordas */
-/* tabela escura completa */
-body.dark-mode table {
-  background-color: #1a1d24 !important;
-  color: #f1f1f1 !important;
-}
-
-/* células da tabela */
+/* 🔥 FIX DEFINITIVO DO BUG BRANCO */
+body.dark-mode table,
 body.dark-mode table td,
 body.dark-mode table th {
   background-color: #1a1d24 !important;
@@ -106,23 +76,63 @@ body.dark-mode table th {
   border-color: #2c313c !important;
 }
 
-/* cabeçalho */
 body.dark-mode table thead th {
   background-color: #111318 !important;
-  color: #ffffff !important;
 }
 
-/* hover */
 body.dark-mode table tbody tr:hover td {
   background-color: #242833 !important;
 }
 
+/* IMAGEM */
 body.dark-mode .img-thumbnail {
   background: #1a1d24;
   border: 1px solid #2c313c;
 }
 
+/* LABEL */
+.dark-mode .form-label {
+  color: #fff !important;
+}
 
+.navbar-nav .nav-link {
+  color: #ffc107;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.navbar {
+  background: #111318; /* tom escuro moderno */
+  border-bottom: 2px solid #ffc107;
+}
+
+.navbar-brand {
+  color: #ffc107;
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.navbar-toggler {
+  border-color: #ffc107;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,193,7,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* ANIMAÇÃO */
 @keyframes pageFadeIn {
   from {
     opacity: 0;
