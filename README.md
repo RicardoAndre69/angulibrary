@@ -6,13 +6,29 @@ Angulibrary is a modern, interactive book search application built with Angular 
 
 ## 🚀 Tech Stack
 
-Angular 21
-TypeScript 
-Bootstrap 
-CSS3
+- Angular 21
+- TypeScript 
+- Bootstrap 
+- CSS3
 
 ---
-
+## 📁 Project Structure
+angulibrary/
+├─ src/
+│  ├─ app/
+│  │  ├─ pages/
+│  │  │  ├─ get-api/      
+│  │  │  │  ├─ books-mock.ts
+│  │  │  │  ├─ get-api.html
+│  │  │  │  ├─ get-api.css
+│  │  │  ├─ daily-books/ 
+│  │  │  │  ├─ daily-books.ts
+│  │  │  │  ├─ daily-book.html
+│  │  │  │  ├─ daily-book.css
+│  │  ├─ app.ts             
+│  │  ├─ app.html
+│  │  ├─ app.css
+│             
 ---
 
 ## 🛠️ Getting Started
