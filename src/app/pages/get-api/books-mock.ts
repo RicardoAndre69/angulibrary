@@ -127,7 +127,7 @@ export const MOCK_BOOKS = [
     authors: ['J.K. Rowling'],
     publishedDate: '1997',
     genres: ['Fantasia'],
-    thumbnail: 'https://covers.openlibrary.org/b/id/7888781-S.jpg',
+    thumbnail: 'https://covers.openlibrary.org/b/isbn/9780439554930-L.jpg',
     infoLink: 'https://openlibrary.org/search?q=Harry+Potter+and+the+Sorcerer’s+Stone'
   },
   {

@@ -32,10 +32,7 @@ export class DailyBookComponent implements OnInit {
     // pega o livro do dia
     const dailyBook = { ...MOCK_BOOKS[index] };
 
-    // substitui thumbnail -S para -L
-    if (dailyBook.thumbnail) {
-      dailyBook.thumbnail = dailyBook.thumbnail.replace('-S.', '-L.');
-    }
+    // ❌ REMOVIDO: replace que quebrava imagem
 
     this.book = dailyBook;
   }

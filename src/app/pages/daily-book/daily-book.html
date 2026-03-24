@@ -7,6 +7,7 @@
     <img
       *ngIf="book.thumbnail"
       [src]="book.thumbnail"
+      (error)="book.thumbnail = 'assets/no-cover.jpg'"
       class="card-img-top"
     />
 
