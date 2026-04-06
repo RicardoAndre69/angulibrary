@@ -1,0 +1,102 @@
+.about-container {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 25px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #ffc107;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  color: #aaa;
+  font-size: 1.2rem;
+}
+
+/* FEATURES GRID */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+/* CARDS */
+.feature-card {
+  padding: 25px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #1a1d24, #12151b);
+  border: 1px solid #2c313c;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  border-color: #ffc107;
+}
+
+.feature-card h3 {
+  margin: 10px 0;
+  color: #ffc107;
+}
+
+.feature-card p {
+  color: #bbb;
+  font-size: 0.95rem;
+}
+
+/* ICON */
+lucide-icon {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 10px;
+  color: #ffc107;
+}
+
+/* ABOUT TEXT */
+.about-text {
+  margin-bottom: 40px;
+  padding: 20px;
+  border-left: 3px solid #ffc107;
+  background: rgba(255, 193, 7, 0.05);
+  border-radius: 8px;
+}
+
+.about-text h2 {
+  margin-bottom: 15px;
+  color: #ffc107;
+}
+
+.about-text p {
+  color: #ccc;
+}
+
+/* AUTHOR */
+.author-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+  padding: 15px;
+  border-top: 1px solid #2c313c;
+  color: #aaa;
+  font-style: italic;
+}
+
+.author-section lucide-icon {
+  color: #ffc107;
+}

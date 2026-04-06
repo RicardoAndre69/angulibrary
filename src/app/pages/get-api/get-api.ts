@@ -43,7 +43,7 @@ export class GetApi implements OnInit {
   constructor(private cd: ChangeDetectorRef) {
     const saved = localStorage.getItem('theme');
     if (saved) {
-      document.body.classList.add(saved);
+
     }
   }
 
@@ -155,17 +155,17 @@ export class GetApi implements OnInit {
   }
 
   toggleTheme() {
+    const html = document.documentElement;
 
-    if (document.body.classList.contains('dark-mode')) {
-      document.body.classList.remove('dark-mode');
-      document.body.classList.add('light-mode');
-      localStorage.setItem('theme', 'light-mode');
-    } else {
-      document.body.classList.remove('light-mode');
-      document.body.classList.add('dark-mode');
-      localStorage.setItem('theme', 'dark-mode');
-    }
+    const isDark = html.classList.contains('dark-mode');
 
+    html.classList.remove('dark-mode', 'light-mode');
+
+    const newTheme = isDark ? 'light-mode' : 'dark-mode';
+
+    html.classList.add(newTheme);
+
+    localStorage.setItem('theme', newTheme);
   }
 
 

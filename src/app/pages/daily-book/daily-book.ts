@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MOCK_BOOKS } from '../get-api/books-mock';
+import { applySavedTheme } from '../../utils/theme.util';
 
 @Component({
   selector: 'app-daily-book',
@@ -29,10 +30,9 @@ export class DailyBookComponent implements OnInit {
     const randomNumber = seededRandom(seed);
     const index = Math.floor(randomNumber * MOCK_BOOKS.length);
 
-    // pega o livro do dia
     const dailyBook = { ...MOCK_BOOKS[index] };
 
-    // ❌ REMOVIDO: replace que quebrava imagem
+
 
     this.book = dailyBook;
   }

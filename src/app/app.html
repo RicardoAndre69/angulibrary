@@ -1,19 +1,18 @@
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 shadow-sm">
   <div class="container">
 
 
     <a class="navbar-brand fw-bold" href="#">BiblioteCardo</a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" (click)="isOpen = !isOpen">
       <span class="navbar-toggler-icon"></span>
     </button>
 
 
-    <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+    <div class="navbar-collapse justify-content-center custom-collapse" [class.show]="isOpen">
       <ul class="navbar-nav text-center">
         <li class="nav-item mx-2">
-          <a class="nav-link" routerLink="/">Home</a>
+          <a class="nav-link" routerLink="/" (click)="isOpen = false">Home</a>
         </li>
         <li class="nav-item mx-2">
           <a class="nav-link" routerLink="/books">Livros</a>
@@ -21,13 +20,15 @@
         <li class="nav-item mx-2">
           <a class="nav-link" routerLink="/daily-book">Livro do Dia</a>
         </li>
-        <li class="nav-item mx-2"> 
+        <li class="nav-item mx-2">
           <a class="nav-link" routerLink="/about">Sobre</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+
 
 
 <div class="container mt-4">

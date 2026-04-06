@@ -1,6 +1,14 @@
+/* ================= BASE ================= */
+
 * {
   font-family: 'Object Sans', sans-serif !important;
   letter-spacing: 0.2px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 /* TRANSIÇÕES GLOBAIS */
@@ -12,7 +20,8 @@ tr,
 td,
 th,
 input,
-button {
+button,
+.card {
   transition:
     background-color 300ms ease,
     color 300ms ease,
@@ -22,77 +31,110 @@ button {
 /* ANIMAÇÃO */
 body {
   opacity: 0;
-  animation: pageFadeIn 500ms ease-in-out forwards;
+  animation: pageFadeIn 400ms ease-in-out forwards;
 }
 
 /* ================= LIGHT MODE ================= */
 
-body.light-mode {
+html.light-mode body {
   background: #f8f9fa;
   color: #1a1a1a;
 }
 
-body.light-mode .modern-table {
+/* tabelas */
+html.light-mode .modern-table {
   background: #ffffff;
   color: #1a1a1a;
 }
 
-body.light-mode .modern-table thead {
+html.light-mode .modern-table thead {
   background: #1f1f1f;
   color: #ffffff;
 }
 
-body.light-mode .modern-table tbody tr {
+html.light-mode .modern-table tbody tr {
   background: #ffffff;
+}
+
+/* cards (Bootstrap fix) */
+html.light-mode .card {
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid #ddd;
 }
 
 /* ================= DARK MODE ================= */
 
-body.dark-mode {
+html.dark-mode body {
   background: #0f1115;
   color: #f1f1f1;
 }
 
-body.dark-mode .modern-table {
+/* tabelas */
+html.dark-mode .modern-table {
   background: #1a1d24;
   color: #f1f1f1;
 }
 
-body.dark-mode .modern-table thead {
+html.dark-mode .modern-table thead {
   background: #111318;
   color: #ffffff;
 }
 
-body.dark-mode .modern-table tbody tr {
+html.dark-mode .modern-table tbody tr {
   background: #1a1d24;
 }
 
-/* 🔥 FIX DEFINITIVO DO BUG BRANCO */
-body.dark-mode table,
-body.dark-mode table td,
-body.dark-mode table th {
+/* 🔥 FIX GLOBAL (tabela nunca branca) */
+html.dark-mode table,
+html.dark-mode table td,
+html.dark-mode table th {
   background-color: #1a1d24 !important;
   color: #f1f1f1 !important;
   border-color: #2c313c !important;
 }
 
-body.dark-mode table thead th {
+html.dark-mode table thead th {
   background-color: #111318 !important;
 }
 
-body.dark-mode table tbody tr:hover td {
+html.dark-mode table tbody tr:hover td {
   background-color: #242833 !important;
 }
 
-/* IMAGEM */
-body.dark-mode .img-thumbnail {
+/* cards (Bootstrap fix definitivo) */
+html.dark-mode .card {
+  background-color: #1a1d24 !important;
+  color: #f1f1f1;
+  border: 1px solid #2c313c;
+}
+
+/* imagem */
+html.dark-mode .img-thumbnail {
   background: #1a1d24;
   border: 1px solid #2c313c;
 }
 
-/* LABEL */
-.dark-mode .form-label {
+/* labels */
+html.dark-mode .form-label {
   color: #fff !important;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  background: #111318;
+  border-bottom: 2px solid #ffc107;
+}
+
+.navbar-brand {
+  color: #ffc107;
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
 }
 
 .navbar-nav .nav-link {
@@ -109,21 +151,6 @@ body.dark-mode .img-thumbnail {
   transform: scale(1.05);
 }
 
-.navbar {
-  background: #111318; /* tom escuro moderno */
-  border-bottom: 2px solid #ffc107;
-}
-
-.navbar-brand {
-  color: #ffc107;
-  font-size: 1.5rem;
-  transition: transform 0.3s;
-}
-
-.navbar-brand:hover {
-  transform: scale(1.05);
-}
-
 .navbar-toggler {
   border-color: #ffc107;
 }
@@ -132,12 +159,47 @@ body.dark-mode .img-thumbnail {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,193,7,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* ANIMAÇÃO */
+.custom-collapse {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-14px);
+  transition:
+    max-height 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.55s ease,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.custom-collapse.show {
+  max-height: 600px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar-nav .nav-item {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.5s ease;
+}
+
+.custom-collapse.show .nav-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.custom-collapse.show .nav-item:nth-child(1) { transition-delay: 0.08s; }
+.custom-collapse.show .nav-item:nth-child(2) { transition-delay: 0.16s; }
+.custom-collapse.show .nav-item:nth-child(3) { transition-delay: 0.24s; }
+.custom-collapse.show .nav-item:nth-child(4) { transition-delay: 0.32s; }
+
+/* ================= ANIMAÇÃO ================= */
+
 @keyframes pageFadeIn {
   from {
     opacity: 0;
     transform: translateY(6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
