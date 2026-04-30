@@ -160,37 +160,63 @@ html.dark-mode .form-label {
 }
 
 .custom-collapse {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-14px);
   transition:
     max-height 0.75s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.55s ease,
     transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.custom-collapse.show {
-  max-height: 600px;
-  opacity: 1;
-  transform: translateY(0);
+@media (max-width: 991.98px) {
+  .custom-collapse {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+
+  .custom-collapse.show {
+    max-height: 600px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .navbar-nav .nav-item {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.5s ease;
+  }
+
+  .custom-collapse.show .nav-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .custom-collapse.show .nav-item:nth-child(1) { transition-delay: 0.08s; }
+  .custom-collapse.show .nav-item:nth-child(2) { transition-delay: 0.16s; }
+  .custom-collapse.show .nav-item:nth-child(3) { transition-delay: 0.24s; }
+  .custom-collapse.show .nav-item:nth-child(4) { transition-delay: 0.32s; }
 }
 
-.navbar-nav .nav-item {
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.5s ease;
-}
+@media (min-width: 992px) {
+  .custom-collapse {
+    max-height: none;
+    overflow: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-.custom-collapse.show .nav-item {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .custom-collapse.show {
+    max-height: none;
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-.custom-collapse.show .nav-item:nth-child(1) { transition-delay: 0.08s; }
-.custom-collapse.show .nav-item:nth-child(2) { transition-delay: 0.16s; }
-.custom-collapse.show .nav-item:nth-child(3) { transition-delay: 0.24s; }
-.custom-collapse.show .nav-item:nth-child(4) { transition-delay: 0.32s; }
+  .navbar-nav .nav-item {
+    opacity: 1;
+    transform: translateY(0);
+    transition: none;
+  }
+}
 
 /* ================= ANIMAÇÃO ================= */
 
